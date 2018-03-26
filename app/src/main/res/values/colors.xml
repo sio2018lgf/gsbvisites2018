@@ -7,7 +7,7 @@
     <color name="colorOrange">#fd8c1a</color>
     <color name="colorGreen">#56bc1c</color>
     <color name="colorBlue">#3a56d4</color>
-
+    <color name="colorBlueLight">#b6e5f1</color>
     <color name="colorGrey">#e3e4ec</color>
 
 </resources>

@@ -1,9 +1,11 @@
 package app.btssio.gsbgestionvisites.Visiteur;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
@@ -26,6 +28,7 @@ import app.btssio.gsbgestionvisites.Metier.Visite.Visites;
 import app.btssio.gsbgestionvisites.Metier.Visiteur.Visiteur;
 import app.btssio.gsbgestionvisites.Metier.VolleyHelper;
 import app.btssio.gsbgestionvisites.R;
+import app.btssio.gsbgestionvisites.Visite.DetailVisiteActivity;
 
 public class DetailVisiteurActivity extends Activity {
 
@@ -35,6 +38,7 @@ public class DetailVisiteurActivity extends Activity {
     String visitesUrl = "http://192.168.1.35:8081/gsb_visiteur/visites.json";
     Visiteur visiteur;
     ListView listViewVisites;
+    Button buttonRetour;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,6 +50,7 @@ public class DetailVisiteurActivity extends Activity {
         TextView textViewPrenom = (TextView) findViewById(R.id.textViewPrenom);
         ImageView imageViewPhoto = (ImageView) findViewById(R.id.imageViewPhoto);
         Button buttonDelete = (Button) findViewById(R.id.btn_delete);
+        buttonRetour = (Button) findViewById(R.id.btn_retour);
         requestQueue = Volley.newRequestQueue(getApplicationContext());
 
         visiteur = (Visiteur) getIntent().getSerializableExtra("Visiteur");
@@ -100,6 +105,23 @@ public class DetailVisiteurActivity extends Activity {
                 requestQueue.add(request);
             }
         });
+
+        listViewVisites.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent i = new Intent(DetailVisiteurActivity.this, DetailVisiteActivity.class);
+                i.putExtra("Visite", (Visite) parent.getItemAtPosition(position));
+                startActivity(i);
+            }
+        });
+
+        buttonRetour.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
+
     }
 }
 

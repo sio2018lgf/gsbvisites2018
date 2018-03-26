@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">GSB Gestion Visites</string>
+    <string name="commentaire"><u>Commentaire : </u></string>
 </resources>

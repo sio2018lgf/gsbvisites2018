@@ -25,7 +25,8 @@
         <activity android:name=".Medecin.DetailMedecinActivity" />
         <activity android:name=".Visiteur.VisiteursActivity" />
         <activity android:name=".Visiteur.DetailVisiteurActivity" />
-        <activity android:name=".Visiteur.CreateVisiteurActivity"></activity>
+        <activity android:name=".Visiteur.CreateVisiteurActivity" />
+        <activity android:name=".Visite.DetailVisiteActivity"></activity>
     </application>
 
 </manifest>
